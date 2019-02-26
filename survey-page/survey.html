@@ -1,0 +1,129 @@
+<html>
+	<head>
+		<title>Survey Page</title>
+		<link rel="stylesheet" href="style.css">
+		
+	</head>
+  <body>
+    <div id="title" class="text-center">
+      <h1>Survey Form</h1>
+    </div>
+
+    <div class="form-class">
+	    <form id="survey-form">
+	    <div id="description" class="text-center">
+	     <p>Let us know about your Anime interest</p>
+	    </div>
+	    	<div class="rowTab">
+	    		<div class="labels">
+		    		<label for="name" id="name-label">Name:</label>
+		    	</div>
+		    	<div class="rightTab">
+		    		<input autofocus name="name" id="name" type="text" placeholder="Enter your name" class="input-field" required>
+		    	</div>
+		    </div>
+
+		    <div class="rowTab">
+	    		<div class="labels">
+		    		<label for="email" id="email-label">Email id:</label>
+		    	</div>
+		    	<div class="rightTab">
+		    		<input name="email" id="email" type="email" placeholder="Enter your email" class="input-field" required>
+		    	</div>
+		    </div>
+
+		    <div class="rowTab">
+	    		<div class="labels">
+		    		<label for="age" id="number-label">Age:</label>
+		    	</div>
+		    	<div class="rightTab">
+		    		<input name="age" id="age" type="number" placeholder="Between 5-100"min="5" max="100" class="input-field" required>
+		    	</div>
+		    </div>
+	    	
+	    	<div class="rowTab">
+	    		<div class="labels">
+		    		<label for="stream">How often do you use streaming services to watch anime?</label>
+		    	</div>
+		    	<div class="rightTab">
+		    		<select id="dropdown" name="stream" class="input-field">
+	    		<option disabled selected value>Select an option</option>
+	    		<option value="onceweek">Once a week</option>
+	    		<option value="severaltimes">Several times a week</option>
+	    		<option value="everyday">Everyday</option>
+	    		<option value="rarely">Rarely</option>
+	    	</select>
+		    	</div>
+		    </div>
+	    	
+	    	<div class="rowTab">
+	    		<div class="labels">
+		    		<label for="prefer">What do you prefer?</label>
+		    	</div>
+		    	<div class="rightTab">
+		    		<input type="radio" name="prefer" value="subbed">Subbed
+	    			<input type="radio" name="prefer" value="dubbed">Dubbed
+	    			<input type="radio" name="prefer" value="both">Both
+		    	</div>
+		    </div>
+	    	
+	    	<div class="rowTab">
+	    		<div class="labels">
+		    		<label for="fav">Favorite Anime:</label>
+		    	</div>
+		    	<div class="rightTab">
+		    		<input name="fav" id="fav" type="text" placeholder="Your favorite anime" class="input-field" required>
+		    	</div>
+		    </div>
+
+	    	<div class="rowTab">
+	    		<div class="labels">
+		    		<label for="favchar">Favorite Anime Character:</label>
+		    	</div>
+		    	<div class="rightTab">
+		    		<input name="favchar" id="favchar" type="text" placeholder="Your favorite anime character" class="input-field" required>
+		    	</div>
+		    </div>
+	    	
+	    	<div class="rowTab">
+	    		<div class="labels">
+		    		<label for="manga">Do you read Manga?</label>
+		    	</div>
+		    	<div class="rightTab">
+		    		<input type="radio" name="manga" value="yes">Yes
+	    			<input type="radio" name="manga" value="no">No
+		    	</div>
+		    </div>
+	    	
+	    	<div class="rowTab">
+	    		<div class="labels">
+		    		<label for="interest">Since You'e Been Watching Anime Have you been anymore Intrested in Japan? How?</label>
+		    	</div>
+		    	<div class="rightTab">
+		    		<input type="checkbox" name="interest" value="1">Yes, I'm Learning the Language<br>
+			    	<input type="checkbox" name="interest" value="2"> Yes, I really wanna go there sometime<br>
+			    	<input type="checkbox" name="interest" value="3">Yes, I research the culture a bit <br>
+			    	<input type="checkbox" name="interest" value="4">Yes, I now listen to Japanese Music<br>
+			    	<input type="checkbox" name="interest" value="5">No, Not Really, I just Love the Anime.<br>
+		    	</div>
+		    </div>
+	    
+		    <div class="rowTab">
+	    		<div class="labels">
+		    		<label for="something">Tell us something about your favorite anime</label>
+		    	</div>
+		    	<div class="rightTab">
+		    		<textarea name="something" class="input-field" placeholder="Write something here ..." style="height:80px;" ></textarea><br>
+		    	</div>
+		    </div>
+	    	
+	    	<div class="rowTab">
+	    		<div class="labels"></div>
+	    		<div class="rightTab">
+	    			<button type="submit" id="submit">Submit</button>
+	    		</div>
+	    	</div>
+	    </form>
+    </div>
+  </body>
+</html>

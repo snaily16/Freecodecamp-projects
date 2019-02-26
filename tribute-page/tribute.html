@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>My Tribute Page</title>
+	 <link href="https://fonts.googleapis.com/css?family=Cookie|Dancing+Script|Felipa|Neucha|Tangerine|Sacramento" rel="stylesheet">
+
+	<style type="text/css">
+		.nav{
+			background-color: #ddd;
+			overflow: hidden;
+		}
+		.nav a{
+			float: left;
+			color: black;
+			text-align: center;
+			padding: 10px 20px;
+			text-decoration: none;
+			font-size: 17px;
+		}
+		.nav a:hover {
+			background-color: #444;
+		}
+		.nav a.active{
+			background-color: #d40;
+			color: white;
+		}
+		#main{
+			text-align: center;
+			background-color: #ccc;
+		}
+		.cover-image{
+			background-image: url('maharaj2.jpg');
+			min-height: 100%;
+			height: 580px;
+			padding-top: 20px;
+			background-attachment: fixed;
+  			background-position: center;
+  			background-repeat: no-repeat;
+  			background-size: cover;
+		}
+		#title{
+			position: absolute;
+			padding-left: 20px;
+		}
+		#title h1{
+			font-family: Tangerine, Arial;
+			text-shadow: 4px 4px 4px #444;
+			font-size: 90px;
+			color: #e8570d;
+		}
+		#title h4{
+			font-family: Cookie, Dancing Script, Arial;
+			font-size: 35px;
+			text-shadow: 2px 2px 2px #640;
+			color: #dd2420;
+			padding-top: 180px;
+		}
+		.grid-container{
+			display: grid;
+			grid-template-areas:
+			'left left left right right right'
+			'down down down down down down';
+		}
+		.left, .right, .down{
+			height: 320px;
+			margin:5px;
+		}
+		.left{
+			grid-area:left;
+			padding: 30px 40px 10px 40px;
+			background-color: #e92;
+			border-radius: 10px;
+			box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+		}
+		.right{
+			grid-area:right;
+			padding: 30px 40px 10px 40px;
+			background-color: #28a;
+			border-radius: 10px;
+			box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+		}
+		.down{
+			height: 720px;
+			grid-area:down;
+			padding: 30px 40px 10px 40px;
+			background-color: #27ad3d;
+			border-radius: 10px;
+			box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+		}
+		hr.hr-style {
+		    margin-top: 0;
+		    border: 0;
+		    height: 2px;
+		    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgb(90, 90, 90), rgba(0, 0, 0, 0));
+}
+		.left h2, .right h2, .down h2{
+			font-family: Felipa, Serif;
+			font-size: 35px;
+			margin: 0px;
+		}
+		
+		.left p{
+			text-align: justify;
+			font-family: Neucha,Dancing Script;
+			font-size: 20px;
+		}
+		
+		.right table{
+			text-align: justify;
+			font-family: Neucha,Dancing Script;
+			font-size: 18px;
+			padding: 10px;
+		}
+		.right td{
+			padding: 8px;
+		}
+		@media (max-width:  600px){
+			.grid-container{
+				grid-template-areas:
+				'left left left left left left'
+				'right right right right right right';
+			}
+		}
+		.down ul{
+			text-align: justify;
+			font-family: Neucha,Dancing Script;
+			font-size: 20px;
+			padding: 20px;
+			line-height: 1.7;
+		}
+		.down ul strong{
+			background-color: rgba(200, 0, 0, 0.5);
+			padding:3px;
+		}
+		#img-div{
+			margin:10px 0px 20px 0px;
+			width: 100%;
+			height: auto;
+			border-radius: 10px;
+			background-color: #922;
+			padding-top: 20px;
+			box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+		}
+		#image{
+			width: 100%;
+			height: auto;
+		}
+		#img-caption{
+			font-family: Neucha, Serif;
+			font-size: 25px;
+			padding: 5px;
+		}
+		.more-info p{
+			border: dotted;
+			border-radius: 10px;
+			padding: 10px;
+			font-size: 20px;
+			font-family: Serif;
+			margin: 20px;
+			display: inline-block;
+		}
+		.more-info a{
+			color: black;
+			font-family: Neucha;
+			font-weight: bold;
+			background-color: #e84614;
+			display: inline-block;
+			padding:10px;
+			box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+			border-radius: 5px;
+		}
+		
+		.more-info a:hover{
+			background-color: #dd0f0f; 
+		}
+		.footer{
+			font-family: Cookie, Arial;
+			font-size: 30px;
+			text-align: center;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="nav">
+		<a href="#home" class="active">Home</a>
+		<a href="#about">About</a>
+		<a href="#tribute-info">Timeline</a>
+		<a href="#tribute_link">More Info</a>
+	</div>
+	
+</div>
+	<div id="main">
+		<div class="cover-image overlay" id="home">
+			<div id="title">
+				<h4>Heroic, Exemplary, Outstanding and Inspiring Legend</h4>
+			    <h1>Chhatrapati Shivaji Maharaj</h1>
+			</div>
+  		</div>
+  		<div class="grid-container" id="about">
+  			<div class="left">
+  				<h2>About</h2>
+  				<hr class="hr-style">
+  				<p>Chhatrapati Shivaji Maharaj was the founder of the Maratha Empire in western India. He is considered to be one of the greatest warriors of his time and even today, stories of his exploits are narrated as a part of the folklore. With his valor and great administrative skills, Shivaji Maharaj carved out an enclave from the declining Adilshahi sultanate of Bijapur. It eventually became the genesis of the Maratha Empire. After establishing his rule, Shivaji Maharaj implemented a competent and progressive administration with the help of a disciplined military and well-established administrative set-up. Shivaji Maharaj is well-known for his innovative military tactics that centered around non-conventional methods leveraging strategic factors like geography, speed, and surprise to defeat his more powerful enemies.</p>
+  			</div>
+  			<div class="right">
+  				<h2>Personal Info</h2>
+  				<hr class="hr-style">
+  				<table>
+  					<tr>
+  						<th>Name:</th>
+  						<td>Shivaji Bhonsle</td>
+  					</tr>
+  					<tr>
+  						<th>Date of Birth:</th>
+  						<td>19 February, 1630</td>
+  					</tr>
+  					<tr>
+  						<th>Birthplace:</th>
+  						<td>Shivenri Fort, Pune</td>
+  					</tr>
+  					<tr>
+  						<th>Parents:</th>
+  						<td>Shahaji Bhonsle (Father) and Jijabai (Mother)</td>
+  					</tr>
+  					<tr>
+  						<th>Spouse:</th>
+  						<td>Saibai, Soyarabai, Putalabai, Sakvarbai, Laxmibai, Kashibai</td>
+  					</tr>
+  					<tr>
+  						<th>Death:</th>
+  						<td>3 April, 1680</td>
+  					</tr>
+  				</table>
+  			</div>
+  			<div class="down" id="tribute-info">
+  				<h2>Timeline of Shivaji Maharaj's Life</h2>
+  				<hr class="hr-style">
+  				<ul>
+  					<li><strong>February 19, 1630</strong> - Birth of Shivaji Maharaj on the hill-fort of Shivneri</li>
+  					<li><strong>1630-1645</strong> - Upbringing under the guidance of mother Jijabai and teacher Dadaji Kondev.</li>
+  					<li><strong>May 16, 1640</strong> - Saibai and Shivaji Maharaj were married while still in their childhood.</li>
+  					<li><strong>1645</strong> - Oath of Swarajya at Raireshwar temple</li>
+  					<li><strong>By 1645</strong> - Shivaji Maharaj acquired control of several strategic from under the Bijapur Sultanate around Pune</li>
+  					<li><strong>November 10, 1659</strong> - Shivaji Maharaj killed Afzal Khan at the foot of Pratapgad fort</li>
+  					<li><strong>Mid 1660</strong> - Siege of Panhala by Siddi Jauhar's army.</li>
+  					<li><strong>July 13, 1660</strong> - Battle of Pavan Khind</li>
+  					<li><strong>April 1663</strong> - Attack on Shaista Khan</li>
+  					<li><strong>January 5, 1664</strong> - Sack of Surat</li>
+  					<li><strong>June 11, 1665</strong> - Treaty of Purandar</li>
+  					<li><strong>August 17, 1666</strong> - Arrest in Agra and escape</li>
+  					<li><strong>Between 1666 - 1668:</strong> - Peace with Mughals</li>
+  					<li><strong>February 4, 1670</strong> - Battle of Sinhagad</li>
+  					<li><strong>October 2, 1670</strong> - Shivaji Maharaj sacked Surat for second time.</li>
+  					<li><strong>June 6, 1674</strong> - Shivaji Maharaj was crowned king of the Marathas in a lavish ceremony at Raigad.</li>
+  					<li><strong>End of 1676</strong> - Conquest in Southern India</li>
+  					<li><strong>April 3, 1680</strong> - Shivaji Maharaj died at the age of 52, on the eve of Hanuman Jayanti</li>
+  				</ul>
+  				
+  			</div>
+  		</div>
+
+		<div id="img-div">
+			<div id="image">
+				<img src="rajyaabhishek1.jpg" alt="Coronation Ceremony Pic">
+			</div>
+			<div id="img-caption"><p>Shivaji Maharaj's Coronation Ceremony at Raigad (6th June 1674)</p></div>
+		</div>
+		<div class="more-info" id ="tribute-link">
+			<p>
+			If you have time, you should read more about this incredible human being on this
+			<a href="https://en.wikipedia.org/wiki/Shivaji" id="tribute_link">
+			Wikipedia entry.</a></p>
+		
+		</div>
+	</div>
+	<hr>
+	<div class="footer">-----Written and coded by Snehal Gharat-----</div>
+</body>
+</html>

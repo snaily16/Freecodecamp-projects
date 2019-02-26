@@ -1,0 +1,92 @@
+@import url('https://fonts.googleapis.com/css?family=Press+Start+2P|Bad+Script|Josefin+Slab');
+body{
+	background-image: url('back.jpg');
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+}
+.text-center{
+  text-align:center;
+}
+#title{
+  font-family: 'Press Start 2P';
+  background-color: rgb(71, 163, 224, 0.7);
+  margin: 0 auto;
+  border-radius: 4px;
+  width: 75%;
+  max-width: 900px;
+  padding: 10px;
+  padding-top: 10px;
+}
+.form-class{
+  font-family: Bad Script;
+  background-color: #ddd;
+  margin: 0 auto;
+  border-radius: 4px;
+  width: 75%;
+  max-width: 900px;
+  padding: 10px;
+  padding-top: 20px;
+}
+#description{
+	font-family: Josefin Slab;
+	font-size: 30px;
+	font-weight: bold;
+}
+.labels{
+	display: inline-block;
+	text-align: right;
+	width: 40%;
+	padding: 5px;
+	vertical-align: top;
+	margin-top: 10px;
+	font-weight: bold;
+}
+.rightTab{
+	width: 48%;
+	display: inline-block;
+	text-align: left;
+	vertical-align: middle;
+}
+.input-field{
+	height: 35px;
+	width: 280px;
+	padding: 5px;
+	margin:10px;
+	border: 3px solid #c0c0c0;
+}
+button{
+	background-color: #f44336;
+	color: white;
+	border-radius: 8px;
+	padding: 12px 28px;
+	box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+button:hover{
+	background-color: #4caf50;
+}
+@media screen and (max-width: 833px) {
+  .input-field {
+    width: 80%;
+  }
+  select {
+    width: 90%;
+  }
+}
+
+@media screen and (max-width: 520px) {
+  .labels {
+    width: 100%;
+    text-align: left;
+  }
+  .rightTab {
+    width: 80%;
+    float: left;
+  }
+  .input-field {
+    width: 100%;
+  }
+  select {
+    width: 100%;
+  }
+}
