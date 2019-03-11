@@ -7,3 +7,7 @@ Responsive Web Designs Projects
 ## 2. Survey Page
 
 [My survey page](https://codepen.io/snaily16/pen/eXmBmZ)
+
+## 3. Product Landing Page
+
+[My product landing page](https://codepen.io/snaily16/pen/BbwNqV)
