@@ -1,0 +1,344 @@
+<html>
+	<head>
+		<title>Technical Documentation Page</title>
+		<link rel="stylesheet" href="style.css">
+		 <link href="https://fonts.googleapis.com/css?family=Charm|Fjalla+One|Quicksand|Space+Mono" rel="stylesheet"> 
+	</head>
+	<body>
+		<div class="sidebar">
+
+			<header>
+				<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/OpenCV_Logo_with_text.png/195px-OpenCV_Logo_with_text.png" alt="logo">
+				OpenCV-Python</header>
+			<a href="#">Introduction</a>
+			<a href="#install">Installation</a>
+			<div class="category">Getting started with images</div>
+				<a href="#read_img">Read an image</a>
+				<a href="#display_img">Display an image</a>
+				<a href="#create_window">Create a window</a>
+				<a href="#save_img">Save an image</a>
+				<a href="#using_mat">Using Matplotlib</a>
+			<div class="category">Getting started with videos</div>
+				<a href="#capture_video">Capture video</a>
+				<a href="#play_video">Play Video</a>
+				<a href="#save_video">Save a Video</a>
+			<div class="category">Drawing Functions</div>
+				<a href="#line">Drawing Line</a>
+				<a href="#rectangle">Drawing rectangle</a>
+				<a href="#circle">Drawing Circle</a>
+				<a href="#ellipse">Drawing Ellipse</a>
+				<a href="#polygon">Drawing Polygon</a>
+				<a href="#add-text">Adding Text</a>
+		</div>
+
+		<div class="content">
+			<section id="intro">
+				<header>Introduction</header>
+				<article>
+					<p>OpenCV was started at Intel in 1999 by Gary Bradsky and the first release came out in 2000. Vadim Pisarevsky joined Gary Bradsky to manage Intel's Russian software OpenCV team. In 2005, OpenCV was used on Stanley, the vehicle who won 2005 DARPA Grand Challenge. Later its active development continued under the support of Willow Garage, with Gary Bradsky and Vadim Pisarevsky leading the project. Right now, OpenCV supports a lot of algorithms related to Computer Vision and Machine Learning and it is expanding day-by-day.</p>
+
+					<p>Python is a general purpose programming language started by Guido van Rossum, which became very popular in short time mainly because of its simplicity and code readability. It enables the programmer to express his ideas in fewer lines of code without reducing any readability.</p>
+
+					<p>OpenCV introduces a new set of tutorials which will guide you through various functions available in OpenCV-Python. This guide is mainly focused on OpenCV 3.x version (although most of the tutorials will work with OpenCV 2.x also).</p>
+
+					<p>A prior knowledge on Python and Numpy is required before starting because they won't be covered in this guide. Especially, a good knowledge on Numpy is must to write optimized codes in OpenCV-Python.</p>
+				</article>
+			</section>
+			<section id="install">
+				<header>Installation</header>
+				<article>
+					<p>
+						<h1>Install in Windows</h1>
+						<ol>
+							<li>Below Python packages are to be downloaded and installed to their default locations.
+								<ol type="i">
+									<li><a href="https://www.python.org/downloads/">
+									Python-3.x</a></li>
+									<li><a href="https://docs.scipy.org/doc/numpy-1.13.0/user/install.html">Numpy</a></li>
+									<li><a href="https://matplotlib.org/users/installing.html">Matplotlib</a></li>
+								</ol>
+							</li>
+							<li>Download latest OpenCV release from <a href="https://sourceforge.net/projects/opencvlibrary/">sourceforge</a> site and double-click to extract it.</li>
+							<li>Goto opencv/build/python/3.x folder.</li>
+							<li>Copy cv2.pyd to C:/Python3x/lib/site-packeges.</li>
+							<li>Open Python IDLE and type following codes in Python terminal.
+							<code>>>> import cv2
+>>> print cv2.__version__</code></li>
+						</ol>
+						If the results are printed out without any errors, congratulations !!! You have installed OpenCV-Python successfully.
+					</p>
+						<h1>Install in Linux</h1>
+						<ol>
+							<li>Install prerequisites
+								<code>$ sudo apt-get update
+$ sudo apt-get upgrade
+$ sudo apt-get install build-essential cmake git pkg-config
+$ sudo apt-get install libjpeg8-dev libtiff4-dev libjasper-dev libpng12-dev
+$ sudo apt-get install libavcodec-dev libavformat-dev libswscale-dev libv4l-dev
+$ sudo apt-get install libgtk2.0-dev
+$ sudo apt-get install libatlas-base-dev gfortran</code>
+							</li>
+							<li>
+								Get pip , a Python package manager, installed for Python 3
+								<code>$ wget https://bootstrap.pypa.io/get-pip.py
+$ sudo python3 get-pip.py</code>
+							</li>
+							<li>
+								You should really be using virtual environments for Python development!
+								<code>$ sudo pip3 install virtualenv virtualenvwrapper</code>
+							</li>
+							<li>Update your ~/.bashrc file
+								<code># virtualenv and virtualenvwrapper
+export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
+export WORKON_HOME=$HOME/.virtualenvs
+source /usr/local/bin/virtualenvwrapper.sh</code>
+							</li>
+							<li>Create our cv  virtual environment where you'll be doing your computer vision development using OpenCV and Python 3.x 
+								<code>$ mkvirtualenv cv
+$ sudo apt-get install python3.x-dev
+$ pip install numpy</code>
+							</li>
+							<li>
+								Build and install OpenCV
+								<code># grab the opencv_contrib repo 
+$ cd ~
+$ git clone https://github.com/Itseez/opencv.git
+$ cd opencv
+$ git checkout 3.0.0
+
+# same version for opencv_contrib
+$ cd ~
+$ git clone https://github.com/Itseez/opencv_contrib.git
+$ cd opencv_contrib
+$ git checkout 3.0.0
+
+# setup the build
+$ cd ~/opencv
+$ mkdir build
+$ cd build
+$ cmake -D CMAKE_BUILD_TYPE=RELEASE \
+	-D CMAKE_INSTALL_PREFIX=/usr/local \
+	-D INSTALL_C_EXAMPLES=ON \
+	-D INSTALL_PYTHON_EXAMPLES=ON \
+	-D OPENCV_EXTRA_MODULES_PATH=~/opencv_contrib/modules \
+	-D BUILD_EXAMPLES=ON ..
+
+$ make -j4
+$ sudo make install
+$ sudo ldconfig</code>
+							</li>
+							<li>Sym-link OpenCV
+							<code>$ cd ~/.virtualenvs/cv/lib/python3.4/site-packages/
+$ ln -s /usr/local/lib/python3.4/site-packages/cv2.cpython-34m.so cv2.so</code>
+							</li>
+							<li>Test and Run!
+								<code>$ workon cv
+$ python
+>>> import cv2
+>>> cv2.__version__</code>
+							</li>
+						</ol>
+						Nice work! You have successfully installed OpenCV 3.0 with Python 3.x bindings (and virtual environment support) on your system!
+					<p>
+					</p>
+				</article>
+			</section>
+			<section id="read_img">
+				<header>Read an image</header>
+				<article>
+					<p>Use the function cv2.imread() to read an image. The image should be in the working directory or a full path of image should be given.</p>
+					<p>Second argument is a flag which specifies the way image should be read.
+						<ul>
+							<li>cv2.IMREAD_COLOR : Loads a color image. Any transparency of image will be neglected. It is the default flag.</li>
+							<li>cv2.IMREAD_GRAYSCALE : Loads image in grayscale mode</li>
+							<li>cv2.IMREAD_UNCHANGED : Loads image as such including alpha channel</li>
+						</ul>
+					</p>
+					<p>Note: Instead of these three flags, you can simply pass integers 1, 0 or -1 respectively.</p>	
+					<p>See the code below:
+						<code>import numpy as np
+import cv2
+
+# Load an color image in grayscale
+img = cv2.imread('messi5.jpg',0)</code>
+					</p>
+					<p>Warning: Even if the image path is wrong, it won't throw any error, but print img will give you None</p>
+				</article>
+			</section>
+			<section id="display_img">
+				<header>Display an image</header>
+				<article>
+					<p>Use the function cv2.imshow() to display an image in a window. The window automatically fits to the image size.</p>
+					<p>First argument is a window name which is a string. second argument is our image. You can create as many windows as you wish, but with different window names.</p>
+					<code>cv2.imshow('image',img)
+cv2.waitKey(0)
+cv2.destroyAllWindows()</code>
+					<p>cv2.waitKey() is a keyboard binding function. Its argument is the time in milliseconds. The function waits for specified milliseconds for any keyboard event.</p>
+					<p>cv2.destroyAllWindows() simply destroys all the windows we created. If you want to destroy any specific window, use the function cv2.destroyWindow() where you pass the exact window name as the argument.</p>
+				</article>
+			</section>
+			<section id="create_window">
+				<header>Create a window and Load image later</header>
+				<article>
+					<p>There is a special case where you can already create a window and load image to it later. In that case, you can specify whether window is resizable or not. It is done with the function cv2.namedWindow().</p>
+					<p>By default, the flag is cv2.WINDOW_AUTOSIZE. But if you specify flag to be cv2.WINDOW_NORMAL, you can resize window. It will be helpful when image is too large in dimension and adding track bar to windows.</p>
+					<p>See the code below:</p>
+					<code>cv2.namedWindow('image', cv2.WINDOW_NORMAL)
+cv2.imshow('image',img)
+cv2.waitKey(0)
+cv2.destroyAllWindows()</code>
+				</article>
+			</section>
+			<section id="save_img">
+				<header>Save an image</header>
+				<article>
+					<p>Use the function cv2.imwrite() to save an image.</p>
+					<p>First argument is the file name, second argument is the image you want to save.</p>
+					<code>cv2.imwrite('messigray.png',img)</code>
+					<p>This will save the image in PNG format in the working directory.</p>
+				</article>
+			</section>
+			<section id="using_mat">
+				<header>Using Matplotlib</header>
+				<article>
+					<p>Matplotlib is a plotting library for Python which gives you wide variety of plotting methods. You will see them in coming articles. Here, you will learn how to display image with Matplotlib. You can zoom images, save it etc using Matplotlib.</p>
+					<code>import numpy as np
+import cv2
+from matplotlib import pyplot as plt
+img = cv2.imread('messi5.jpg',0)
+plt.imshow(img, cmap = 'gray', interpolation = 'bicubic')
+plt.xticks([]), plt.yticks([])  # to hide tick values on X and Y axis
+plt.show()</code>
+					<p>Color image loaded by OpenCV is in BGR mode. But Matplotlib displays in RGB mode. So color images will not be displayed correctly in Matplotlib if image is read with OpenCV. Please see the exercises for more details.</p>
+				</article>
+			</section>
+			<section id="capture_video">
+				<header>Capture Video from Camera</header>
+				<article>
+					<p>To capture a video, you need to create a VideoCapture object. Its argument can be either the device index or the name of a video file. Device index is just the number to specify which camera. Normally one camera will be connected (as in my case). So I simply pass 0 (or -1). You can select the second camera by passing 1 and so on. After that, you can capture frame-by-frame. But at the end, don’t forget to release the capture.</p>
+					<code>import numpy as np
+import cv2
+cap = cv2.VideoCapture(0)
+while(True):
+    # Capture frame-by-frame
+    ret, frame = cap.read()
+    # Our operations on the frame come here
+    gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+    # Display the resulting frame
+    cv2.imshow('frame',gray)
+    if cv2.waitKey(1) & 0xFF == ord('q'):
+        break
+# When everything done, release the capture
+cap.release()
+cv2.destroyAllWindows()</code>
+						<p>cap.read() returns a bool (True/False). If frame is read correctly, it will be True. So you can check end of the video by checking this return value.</p>
+				</article>
+			</section>
+			<section id="play_video">
+				<header>Playing Video from file</header>
+				<article>
+					<p>It is same as capturing from Camera, just change camera index with video file name. Also while displaying the frame, use appropriate time for cv2.waitKey(). If it is too less, video will be very fast and if it is too high, video will be slow.</p>
+					<code>import numpy as np
+import cv2
+cap = cv2.VideoCapture('vtest.avi')
+while(cap.isOpened()):
+    ret, frame = cap.read()
+    gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+    cv2.imshow('frame',gray)
+    if cv2.waitKey(1) & 0xFF == ord('q'):
+        break
+cap.release()
+cv2.destroyAllWindows()</code>
+				</article>
+			</section>
+			<section id="save_video">
+				<header>Saving a Video</header>
+				<article>
+					<p>So we capture a video, process it frame-by-frame and we want to save that video. For images, it is very simple, just use cv2.imwrite(). Here a little more work is required.</p>
+					<p>This time we create a VideoWriter object. We should specify the output file name (eg: output.avi). Then we should specify the FourCC code.Then number of frames per second (fps) and frame size should be passed. And last one is isColor flag. If it is True, encoder expect color frame, otherwise it works with grayscale frame.</p>
+					<p>Below code capture from a Camera, flip every frame in vertical direction and saves it.</p>
+					<code>import numpy as np
+import cv2
+cap = cv2.VideoCapture(0)
+# Define the codec and create VideoWriter object
+fourcc = cv2.VideoWriter_fourcc(*'XVID')
+out = cv2.VideoWriter('output.avi',fourcc, 20.0, (640,480))
+while(cap.isOpened()):
+    ret, frame = cap.read()
+    if ret==True:
+        frame = cv2.flip(frame,0)
+        # write the flipped frame
+        out.write(frame)
+        cv2.imshow('frame',frame)
+        if cv2.waitKey(1) & 0xFF == ord('q'):
+            break
+    else:
+        break
+# Release everything if job is finished
+cap.release()
+out.release()
+cv2.destroyAllWindows()
+</code>
+				</article>
+			</section>
+			<section id="line">
+				<header>Drawing Line</header>
+				<article>
+					<p>To draw a line, you need to pass starting and ending coordinates of line. We will create a black image and draw a blue line on it from top-left to bottom-right corners.</p>
+					<code>import numpy as np
+import cv2
+# Create a black image
+img = np.zeros((512,512,3), np.uint8)
+# Draw a diagonal blue line with thickness of 5 px
+img = cv2.line(img,(0,0),(511,511),(255,0,0),5)</code>
+				</article>
+			</section>
+			<section id="rectangle">
+				<header>Drawing Rectangle</header>
+				<article>
+					<p>To draw a rectangle, you need top-left corner and bottom-right corner of rectangle. This time we will draw a green rectangle at the top-right corner of image.</p>
+					<code>img = cv2.rectangle(img,(384,0),(510,128),(0,255,0),3)</code>
+				</article>
+			</section>
+			<section id="circle">
+				<header>Drawing Circle</header>
+				<article>
+					<p>To draw a circle, you need its center coordinates and radius. We will draw a circle inside the rectangle drawn above.</p>
+					<code>img = cv2.circle(img,(447,63), 63, (0,0,255), -1)</code>
+				</article>
+			</section>
+			<section id="ellipse">
+				<header>Drawing Ellipse</header>
+				<article>
+					<p>To draw the ellipse, we need to pass several arguments. One argument is the center location (x,y). Next argument is axes lengths (major axis length, minor axis length). angle is the angle of rotation of ellipse in anti-clockwise direction. startAngle and endAngle denotes the starting and ending of ellipse arc measured in clockwise direction from major axis. i.e. giving values 0 and 360 gives the full ellipse. For more details, check the documentation of cv2.ellipse(). Below example draws a half ellipse at the center of the image.</p>
+					<code>img = cv2.ellipse(img,(256,256),(100,50),0,0,180,255,-1)</code>
+				</article>
+			</section>
+			<section id="polygon">
+				<header>Drawing Polygon</header>
+				<article>
+					<p>To draw a polygon, first you need coordinates of vertices. Make those points into an array of shape ROWSx1x2 where ROWS are number of vertices and it should be of type int32. Here we draw a small polygon of with four vertices in yellow color.</p>
+					<code>pts = np.array([[10,5],[20,30],[70,20],[50,10]], np.int32)
+pts = pts.reshape((-1,1,2))
+img = cv2.polylines(img,[pts],True,(0,255,255))
+</code>
+				</article>
+			</section>
+			<section>
+				<header>Adding Text to Images</header>
+				<article>
+					<p>To put texts in images, you need specify following things.</p>
+					<ul>
+						<li>Text data that you want to write</li>
+						<li>Position coordinates of where you want put it (i.e. bottom-left corner where data starts).</li>
+						<li>Font type (Check cv2.putText() docs for supported fonts)</li>
+						<li>Font Scale (specifies the size of font)</li>
+						<li>regular things like color, thickness, lineType etc. For better look, lineType = cv2.LINE_AA is recommended.</li>
+					</ul>
+					<code>font = cv2.FONT_HERSHEY_SIMPLEX
+cv2.putText(img,'OpenCV',(10,500), font, 4,(255,255,255),2,cv2.LINE_AA)</code>
+				</article>
+			</section>
+		</div>
+	</body>
+</html>
